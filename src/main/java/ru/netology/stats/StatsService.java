@@ -1,0 +1,102 @@
+package ru.netology.stats;
+
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
+public class StatsService {
+
+    // нахождение суммы всех элементов массива с помощью Stream API
+    public int totalSalesWithStream(int[] months) {
+
+        return Arrays.stream(months).sum();
+    }
+
+    //      нахождение суммы всех элементов массива с помощью цикла
+    public int totalSalesWithCycle(int[] months) {
+
+        int sum = 0;
+        for (int i : months) {
+            sum += i;
+        }
+        return sum;
+    }
+
+    //  нахождение средней суммы продаж за месяц
+    public int averageSalesAmount(int[] months) {
+
+        return totalSalesWithCycle(months) / months.length;
+    }
+
+    //   нахождение номера месяца с максимальными продажами
+    public int maxSalesMonth(int[] months) {
+
+        int monthWithMaxSales = 0;
+        for (int i = 0; i < months.length; i++) {
+            if (months[i] >= months[monthWithMaxSales]) {
+                monthWithMaxSales = i;
+            }
+        }
+        return monthWithMaxSales + 1;
+    }
+
+    // нахождение номера месяца с максимальными продажами с помощью Stream API (первый месяц)
+    public int maxSalesMonthWithStream_findFirst(int[] months) {
+        int maxSales = Arrays.stream(months)
+                .max()
+                .orElse(0);
+
+        int monthWithMaxSales = IntStream.range(0, months.length)
+                .filter(i -> months[i] == maxSales)
+                .findFirst()
+                .orElse(0);
+
+        return monthWithMaxSales + 1;
+    }
+
+    // нахождение номера месяца с максимальными продажами с помощью Stream API (последний месяц)
+    public int maxSalesMonthWithStream_findLast(int[] months) {
+        int maxSales = Arrays.stream(months)
+                .max()
+                .orElse(0);
+
+        int monthWithMaxSales = IntStream.range(0, months.length)
+                .reduce((first, second) -> months[second] == maxSales ? second : first)
+                .orElse(0);
+
+        return monthWithMaxSales + 1;
+    }
+
+    //    нахождение номера месяца с минимальными продажами
+    public int minSalesMonth(int[] months) {
+
+        int monthWithMinSales = 0;
+        for (int i = 0; i < months.length; i++) {
+            if (months[i] <= months[monthWithMinSales]) {
+                monthWithMinSales = i;
+            }
+        }
+        return monthWithMinSales + 1;
+    }
+
+    //    нахождения количества месяцев с продажами ниже среднего
+    public int monthsSalesBelowAverage(int[] months) {
+        int count = 0;
+        for (int x : months) {
+            if (x < averageSalesAmount(months)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    //    нахождение количества месяцев с продажами выше среднего
+    public int monthsSalesOverAverage(int[] months) {
+        int count = 0;
+        for (int x : months) {
+            if (x > averageSalesAmount(months)) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
