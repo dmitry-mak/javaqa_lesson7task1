@@ -1,10 +1,7 @@
 package ru.netology.stats;
 
-import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class StatsService {
-
 
     //      нахождение суммы всех элементов массива с помощью цикла
     public int totalSalesWithCycle(int[] months) {
