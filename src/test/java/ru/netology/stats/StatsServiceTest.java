@@ -9,8 +9,8 @@ class StatsServiceTest {
     @Test
     void totalSalesWithCycleTest() {
 
-        int[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 180;
+        long[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long expected = 180;
         StatsService service = new StatsService();
         Assertions.assertEquals(expected, service.totalSalesWithCycle(monthlyIncomeArray));
     }
@@ -18,8 +18,8 @@ class StatsServiceTest {
     @Test
     void averageSalesAmountTest() {
 
-        int[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 15;
+        long[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long expected = 15;
         StatsService service = new StatsService();
         Assertions.assertEquals(expected, service.averageSalesAmount(monthlyIncomeArray));
     }
@@ -27,7 +27,7 @@ class StatsServiceTest {
     @Test
     void maxSalesMonthTest() {
 
-        int[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 8;
         StatsService service = new StatsService();
         Assertions.assertEquals(expected, service.maxSalesMonth(monthlyIncomeArray));
@@ -37,7 +37,7 @@ class StatsServiceTest {
     @Test
     void minSalesMonth() {
 
-        int[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 9;
         StatsService service = new StatsService();
         Assertions.assertEquals(expected, service.minSalesMonth(monthlyIncomeArray));
@@ -46,7 +46,7 @@ class StatsServiceTest {
     @Test
     void monthsSalesBelowAverage() {
 
-        int[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 5;
         StatsService service = new StatsService();
         Assertions.assertEquals(expected, service.monthsSalesBelowAverage(monthlyIncomeArray));
@@ -55,7 +55,7 @@ class StatsServiceTest {
     @Test
     void monthsSalesOverAverage() {
 
-        int[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 5;
         StatsService service = new StatsService();
         Assertions.assertEquals(expected, service.monthsSalesOverAverage(monthlyIncomeArray));

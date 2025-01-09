@@ -4,23 +4,23 @@ package ru.netology.stats;
 public class StatsService {
 
     //      нахождение суммы всех элементов массива с помощью цикла
-    public int totalSalesWithCycle(int[] months) {
+    public long totalSalesWithCycle(long[] months) {
 
-        int sum = 0;
-        for (int i : months) {
+        long sum = 0;
+        for (long i : months) {
             sum += i;
         }
         return sum;
     }
 
     //  нахождение средней суммы продаж за месяц
-    public int averageSalesAmount(int[] months) {
+    public long averageSalesAmount(long[] months) {
 
         return totalSalesWithCycle(months) / months.length;
     }
 
     //   нахождение номера месяца с максимальными продажами
-    public int maxSalesMonth(int[] months) {
+    public int maxSalesMonth(long[] months) {
 
         int monthWithMaxSales = 0;
         for (int i = 0; i < months.length; i++) {
@@ -33,7 +33,7 @@ public class StatsService {
 
 
     //    нахождение номера месяца с минимальными продажами
-    public int minSalesMonth(int[] months) {
+    public int minSalesMonth(long[] months) {
 
         int monthWithMinSales = 0;
         for (int i = 0; i < months.length; i++) {
@@ -45,9 +45,9 @@ public class StatsService {
     }
 
     //    нахождения количества месяцев с продажами ниже среднего
-    public int monthsSalesBelowAverage(int[] months) {
+    public int monthsSalesBelowAverage(long[] months) {
         int count = 0;
-        for (int x : months) {
+        for (long x : months) {
             if (x < averageSalesAmount(months)) {
                 count++;
             }
@@ -56,9 +56,9 @@ public class StatsService {
     }
 
     //    нахождение количества месяцев с продажами выше среднего
-    public int monthsSalesOverAverage(int[] months) {
+    public int monthsSalesOverAverage(long[] months) {
         int count = 0;
-        for (int x : months) {
+        for (long x : months) {
             if (x > averageSalesAmount(months)) {
                 count++;
             }
