@@ -5,11 +5,6 @@ import java.util.stream.IntStream;
 
 public class StatsService {
 
-    // нахождение суммы всех элементов массива с помощью Stream API
-    public int totalSalesWithStream(int[] months) {
-
-        return Arrays.stream(months).sum();
-    }
 
     //      нахождение суммы всех элементов массива с помощью цикла
     public int totalSalesWithCycle(int[] months) {
@@ -39,32 +34,6 @@ public class StatsService {
         return monthWithMaxSales + 1;
     }
 
-    // нахождение номера месяца с максимальными продажами с помощью Stream API (первый месяц)
-    public int maxSalesMonthWithStream_findFirst(int[] months) {
-        int maxSales = Arrays.stream(months)
-                .max()
-                .orElse(0);
-
-        int monthWithMaxSales = IntStream.range(0, months.length)
-                .filter(i -> months[i] == maxSales)
-                .findFirst()
-                .orElse(0);
-
-        return monthWithMaxSales + 1;
-    }
-
-    // нахождение номера месяца с максимальными продажами с помощью Stream API (последний месяц)
-    public int maxSalesMonthWithStream_findLast(int[] months) {
-        int maxSales = Arrays.stream(months)
-                .max()
-                .orElse(0);
-
-        int monthWithMaxSales = IntStream.range(0, months.length)
-                .reduce((first, second) -> months[second] == maxSales ? second : first)
-                .orElse(0);
-
-        return monthWithMaxSales + 1;
-    }
 
     //    нахождение номера месяца с минимальными продажами
     public int minSalesMonth(int[] months) {

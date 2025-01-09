@@ -5,14 +5,6 @@ import org.junit.jupiter.api.Test;
 
 class StatsServiceTest {
 
-    @Test
-    void totalSalesWithStreamTest() {
-
-        int[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 180;
-        StatsService service = new StatsService();
-        Assertions.assertEquals(expected, service.totalSalesWithCycle(monthlyIncomeArray));
-    }
 
     @Test
     void totalSalesWithCycleTest() {
@@ -20,7 +12,7 @@ class StatsServiceTest {
         int[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 180;
         StatsService service = new StatsService();
-        Assertions.assertEquals(expected, service.totalSalesWithStream(monthlyIncomeArray));
+        Assertions.assertEquals(expected, service.totalSalesWithCycle(monthlyIncomeArray));
     }
 
     @Test
@@ -41,23 +33,6 @@ class StatsServiceTest {
         Assertions.assertEquals(expected, service.maxSalesMonth(monthlyIncomeArray));
     }
 
-    @Test
-    void maxSalesMonthWithStreamTest_findFirst() {
-
-        int[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 6;
-        StatsService service = new StatsService();
-        Assertions.assertEquals(expected, service.maxSalesMonthWithStream_findFirst(monthlyIncomeArray));
-    }
-
-    @Test
-    void maxSalesMonthWithStreamTest_findLast() {
-
-        int[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 8;
-        StatsService service = new StatsService();
-        Assertions.assertEquals(expected, service.maxSalesMonthWithStream_findLast(monthlyIncomeArray));
-    }
 
     @Test
     void minSalesMonth() {
