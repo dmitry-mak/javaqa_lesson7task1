@@ -3,8 +3,8 @@ package ru.netology.stats;
 
 public class StatsService {
 
-    //      нахождение суммы всех элементов массива с помощью цикла
-    public long totalSalesWithCycle(long[] months) {
+    //      нахождение суммы всех элементов массива
+    public long totalSales(long[] months) {
 
         long sum = 0;
         for (long i : months) {
@@ -16,7 +16,7 @@ public class StatsService {
     //  нахождение средней суммы продаж за месяц
     public long averageSalesAmount(long[] months) {
 
-        return totalSalesWithCycle(months) / months.length;
+        return totalSales(months) / months.length;
     }
 
     //   нахождение номера месяца с максимальными продажами
@@ -47,8 +47,9 @@ public class StatsService {
     //    нахождения количества месяцев с продажами ниже среднего
     public int monthsSalesBelowAverage(long[] months) {
         int count = 0;
+        long averageSale = averageSalesAmount(months);
         for (long x : months) {
-            if (x < averageSalesAmount(months)) {
+            if (x < averageSale) {
                 count++;
             }
         }
@@ -58,8 +59,9 @@ public class StatsService {
     //    нахождение количества месяцев с продажами выше среднего
     public int monthsSalesOverAverage(long[] months) {
         int count = 0;
+        long averageSale = averageSalesAmount(months);
         for (long x : months) {
-            if (x > averageSalesAmount(months)) {
+            if (x > averageSale) {
                 count++;
             }
         }

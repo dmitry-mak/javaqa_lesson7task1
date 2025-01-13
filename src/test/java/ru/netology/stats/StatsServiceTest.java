@@ -7,12 +7,12 @@ class StatsServiceTest {
 
 
     @Test
-    void totalSalesWithCycleTest() {
+    void totalSalesTest() {
 
         long[] monthlyIncomeArray = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         long expected = 180;
         StatsService service = new StatsService();
-        Assertions.assertEquals(expected, service.totalSalesWithCycle(monthlyIncomeArray));
+        Assertions.assertEquals(expected, service.totalSales(monthlyIncomeArray));
     }
 
     @Test
